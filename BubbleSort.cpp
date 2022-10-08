@@ -2,25 +2,25 @@
 #include <iostream>
 using namespace std;
 
-// ½»»»
+// äº¤æ¢
 void swap(int& a, int& b) {
 	int temp = a;
 	a = b;
 	b = a;
 }
 
-// Ã°ÅİÅÅĞò
+// å†’æ³¡æ’åº
 void BubbleSort(int A[], int n) {
 	int i, j;
 	bool flag;
-	for (i = 0; i < n - 1; i++) {// ¹²n-1ÌËÃ°Åİ
-		flag = false;// ±ê¼Ç±¾ÌËÃ°ÅİÊÇ·ñ·¢Éú½»»»
-		for (j = n - 1; j >= i; j--)// Ò»ÌËÃ°Åİ¹ı³Ì
-			if (A[j - 1] > A[j]) {// ÈôÄæĞò
-				swap(A[j - 1], A[j]);// ½»»»
+	for (i = 0; i < n - 1; i++) {// å…±n-1è¶Ÿå†’æ³¡
+		flag = false;// æ ‡è®°æœ¬è¶Ÿå†’æ³¡æ˜¯å¦å‘ç”Ÿäº¤æ¢
+		for (j = n - 1; j >= i; j--)// ä¸€è¶Ÿå†’æ³¡è¿‡ç¨‹
+			if (A[j - 1] > A[j]) {// è‹¥é€†åº
+				swap(A[j - 1], A[j]);// äº¤æ¢
 				flag = true;
 			}
-		if (flag == false)// ±¾ÌË±éÀúÃ»ÓĞ·¢Éú½»»»£¬ËµÃ÷±íÒÑ¾­ÓĞĞò
+		if (flag == false)// æœ¬è¶Ÿéå†æ²¡æœ‰å‘ç”Ÿäº¤æ¢ï¼Œè¯´æ˜è¡¨å·²ç»æœ‰åº
 			return;
 	}
 }
@@ -28,10 +28,10 @@ void BubbleSort(int A[], int n) {
 void BubbleSort2(int A[], int n) {
 	int i, j;
 	bool flag;
-	for (i = 0; i < n - 1; i++) {// n-1ÌËÃ°Åİ
+	for (i = 0; i < n - 1; i++) {// n-1è¶Ÿå†’æ³¡
 		flag = false;
-		for(j = 0;j<n-1-i;i++)// Ã¿ÌËÃ°Åİ
-			if (A[j] > A[j + 1]) {// ÈôÄæĞò
+		for(j = 0;j<n-1-i;i++)// æ¯è¶Ÿå†’æ³¡
+			if (A[j] > A[j + 1]) {// è‹¥é€†åº
 				swap(A[j], A[j + 1]);
 				flag = true;
 			}
@@ -45,47 +45,47 @@ typedef struct LNode {
 	struct LNode* next;
 }LNode,*LinkList;
 
-// Á´±íÃ°ÅİÅÅĞò£¨½»»»Êı¾İÓò£©
+// é“¾è¡¨å†’æ³¡æ’åºï¼ˆäº¤æ¢æ•°æ®åŸŸï¼‰
 void LinkListBubble(LinkList& L) {
 	LNode* p, * q;
 	LNode* tail = L;
 	int temp;
 	bool flag;
-	while (tail->next != NULL)// tailÖ¸Ïò×îºóÒ»¸ö½áµã
+	while (tail->next != NULL)// tailæŒ‡å‘æœ€åä¸€ä¸ªç»“ç‚¹
 		tail = tail->next;
-	while (L != tail) {// Ã¿´ÎÃ°ÅİÒÀ´Î£¬ÈÃtailÖ¸ÏòËüÇ°ÃæµÄ½áµã£¬tail=LÊ±½áÊø
+	while (L != tail) {// æ¯æ¬¡å†’æ³¡ä¾æ¬¡ï¼Œè®©tailæŒ‡å‘å®ƒå‰é¢çš„ç»“ç‚¹ï¼Œtail=Læ—¶ç»“æŸ
 		flag = false;
 		p = L;
-		while (p != tail) {// µ±p==tailÊ±£¬p->nextÎŞÒâÒå
-			if (p->data > p->next->data) {// ÄæĞòÔò½»»»
+		while (p != tail) {// å½“p==tailæ—¶ï¼Œp->nextæ— æ„ä¹‰
+			if (p->data > p->next->data) {// é€†åºåˆ™äº¤æ¢
 				temp = p->data;
 				p->data = p->next->data;
 				p->next->data = temp;
 				flag = true;
 			}
-			q = p;// q¼ÇÂ¼tailÇ°ÃæµÄ½áµãÎ»ÖÃ
+			q = p;// qè®°å½•tailå‰é¢çš„ç»“ç‚¹ä½ç½®
 			p = p->next;
 		}
-		if (flag == false)// Î´·¢Éú½»»»£¬ÒÑ¾­ÓĞĞò
+		if (flag == false)// æœªå‘ç”Ÿäº¤æ¢ï¼Œå·²ç»æœ‰åº
 			return;
-		tail = q;// tailÖ¸ÏòÇ°ÃæµÄÒ»¸ö½áµã
+		tail = q;// tailæŒ‡å‘å‰é¢çš„ä¸€ä¸ªç»“ç‚¹
 	}
 }
 
 
-// Á´±íÃ°ÅİÅÅĞò£¨½»»»Êı¾İÓò£©
+// é“¾è¡¨å†’æ³¡æ’åºï¼ˆäº¤æ¢ç»“ç‚¹ï¼‰
 void LinkListBubble(LinkList& L) {
-	LNode* p, * q,*pre;// pÎª¹¤×÷Ö¸Õë£¬preÎªpÇ°Çı£¬qÎªpºó¼Ì
+	LNode* p, * q,*pre;// pä¸ºå·¥ä½œæŒ‡é’ˆï¼Œpreä¸ºpå‰é©±ï¼Œqä¸ºpåç»§
 	LNode* tail = L;
 	bool flag;
-	while (tail->next != NULL)// tailÖ¸Ïò×îºóÒ»¸ö½áµã
+	while (tail->next != NULL)// tailæŒ‡å‘æœ€åä¸€ä¸ªç»“ç‚¹
 		tail = tail->next;
-	while (L != tail) {// Ã¿´ÎÃ°ÅİÒÀ´Î£¬ÈÃtailÖ¸ÏòËüÇ°ÃæµÄ½áµã£¬tail=LÊ±½áÊø
+	while (L != tail) {// æ¯æ¬¡å†’æ³¡ä¾æ¬¡ï¼Œè®©tailæŒ‡å‘å®ƒå‰é¢çš„ç»“ç‚¹ï¼Œtail=Læ—¶ç»“æŸ
 		flag = false;
 		p = L;
 		q = p->next;
-		while (p != tail) {// µ±p==tailÊ±£¬p->nextÎŞÒâÒå
-			if (p->data > q->data) {// ÄæĞòÔò½»»»
+		while (p != tail) {// å½“p==tailæ—¶ï¼Œp->nextæ— æ„ä¹‰
+			if (p->data > q->data) {// é€†åºåˆ™äº¤æ¢
 				if (p == L) {
 					p->next = q->next;
 					q->next = p;
@@ -98,12 +98,12 @@ void LinkListBubble(LinkList& L) {
 				}
 				flag = true;
 			}
-			pre = q;// pre¼ÇÂ¼tailÇ°ÃæµÄ½áµãÎ»ÖÃ
+			pre = q;// preè®°å½•tailå‰é¢çš„ç»“ç‚¹ä½ç½®
 			p = p->next;
 			q = p->next;
 		}
-		if (flag == false)// Î´·¢Éú½»»»£¬ÒÑ¾­ÓĞĞò
+		if (flag == false)// æœªå‘ç”Ÿäº¤æ¢ï¼Œå·²ç»æœ‰åº
 			return;
-		tail = pre;// tailÖ¸ÏòÇ°ÃæµÄÒ»¸ö½áµã
+		tail = pre;// tailæŒ‡å‘å‰é¢çš„ä¸€ä¸ªç»“ç‚¹
 	}
 }
